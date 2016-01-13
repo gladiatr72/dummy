@@ -16,6 +16,8 @@ from django.utils import six
 
 
 from .common import *  # noqa
+import os
+
 
 # SECRET CONFIGURATION
 # ------------------------------------------------------------------------------
