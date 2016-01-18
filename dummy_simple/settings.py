@@ -12,23 +12,13 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = '{{site_config.app_base}}'
+SECRET_KEY = '{{app_env.DJANGO_SETTINGS_MODULE}}'
 
+DEBUG = False
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
+ALLOWED_HOSTS = [{{site_config.primary_hostname}}, 'whatever.else.com']
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!f&g)&&yq5_6nf*+wf^ebx6o-fkm9_)p+lckur@vu)906oj35$'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -70,14 +60,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dummy_simple.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': 'localhost',
+        'NAME': 'dummy_simple',
+        'PASSWORD': '{{site_config.dbpass}}',
+        'USER': '{{site}}',
     }
 }
 
