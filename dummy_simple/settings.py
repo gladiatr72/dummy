@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#4vm1!9n6=5k2(q)9)521!qcg6ra54vk3fzjspq5$h&uby0$x)'
+SECRET_KEY = '{{site_config.secret_key}}'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'dummy_simple.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': {{site}},
-        'USER': {{site}},
-        'HOST': {{site_config.dbhost}},
-        'PASSWORD': {{site_config.dbpass}},
+        'NAME': '{{site}}',
+        'USER': '{{site}}',
+        'HOST': '{{site_config.dbhost}}',
+        'PASSWORD': '{{site_config.dbpass}}',
     }
 }
 
