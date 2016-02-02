@@ -102,7 +102,8 @@ COMPRESS_PRECOMPILERS = (
 DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',
                          default='project_joy <noreply@example.com>')
 
-EMAIL_BACKEND = 'django.core.files.storage.FileSystemStorage'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 EMAIL_SUBJECT_PREFIX = env("DJANGO_EMAIL_SUBJECT_PREFIX", default='[project_joy] ')
 SERVER_EMAIL = env('DJANGO_SERVER_EMAIL', default=DEFAULT_FROM_EMAIL)
 
